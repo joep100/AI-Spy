@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+__FONTS__
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+:root{
+  --violet:#5E17EB; --violet-2:#8B5CF6; --soft:#F2ECFE;
+  --ink:#15161A; --dim:#6B7079; --rule:#E4E4E9;
+  --red:#D3401B; --amber:#E0A32E; --green:#0F8A5F;
+}
+html,body{width:210mm;height:297mm}
+body{font-family:Inter,sans-serif;color:var(--ink);background:#fff;font-size:9pt;line-height:1.35;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* header */
+header{background:var(--ink);color:#fff;padding:5mm 12mm;display:flex;justify-content:space-between;align-items:center}
+header .logo{height:8.4mm;width:auto;display:block}
+.hmeta{text-align:right;font-family:"JetBrains Mono",monospace;font-size:7pt;letter-spacing:.1em;color:#9BA0AA;line-height:1.7}
+.hmeta b{display:block;color:#fff;font-weight:500;font-size:7.6pt}
+
+/* title */
+.title{padding:4.6mm 12mm 4mm;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink)}
+.title h1{font-size:27pt;font-weight:800;letter-spacing:-.04em;line-height:.9}
+.title .url{font-family:"JetBrains Mono",monospace;font-size:7.6pt;color:var(--dim);margin-top:2mm;letter-spacing:.04em}
+.title .q{text-align:right;font-size:9.5pt;color:var(--dim);line-height:1.4;max-width:62mm}
+.title .q b{color:var(--ink);font-weight:600}
+
+main{flex:1;padding:4.6mm 12mm 0;display:flex;flex-direction:column;gap:3.4mm}
+.lbl{font-family:"JetBrains Mono",monospace;font-size:7pt;letter-spacing:.16em;color:var(--dim);margin-bottom:2.6mm}
+
+/* hero rings */
+.hero{display:grid;grid-template-columns:62mm 1fr;gap:10mm;align-items:center}
+.ring-wrap{display:flex;align-items:center;gap:6mm}
+.ring{position:relative;width:30mm;height:30mm;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .ctr .v{font-size:21pt;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--violet)}
+.ring .ctr .s{font-family:"JetBrains Mono",monospace;font-size:7pt;color:var(--dim);margin-top:.8mm}
+.hero-txt .big{font-size:13pt;font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.hero-txt .sub{font-size:8.6pt;color:var(--dim);margin-top:2mm;line-height:1.45}
+
+.asst3{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
+.a{border:1.5px solid var(--rule);border-radius:1.5mm;padding:3.2mm 3.4mm 3mm;text-align:center}
+.a.bad{border-color:var(--red);background:#FDF4F1}
+.a .n{font-family:"JetBrains Mono",monospace;font-size:7pt;letter-spacing:.12em;color:var(--dim)}
+.a .v{font-size:22pt;font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:1.6mm}
+.a .v small{font-size:10pt;font-weight:600;color:var(--dim)}
+.a.bad .v{color:var(--red)}
+.a .pips{display:flex;gap:1.4mm;justify-content:center;margin-top:3mm}
+.a .pips i{width:4.4mm;height:1.8mm;border-radius:.9mm;background:var(--violet)}
+.a .pips i.off{background:#DCDEE4}
+.a.bad .pips i{background:var(--red)}
+.a.bad .pips i.off{background:#DCDEE4}
+
+/* question matrix */
+.mx{display:grid;grid-template-columns:1fr 16mm 16mm 16mm;gap:0 3mm;align-items:center}
+.mx .h{font-family:"JetBrains Mono",monospace;font-size:6.8pt;letter-spacing:.1em;color:var(--dim);text-align:center;padding-bottom:2.4mm}
+.mx .qq{font-size:8.8pt;padding:1.6mm 0;border-top:1px solid var(--rule);line-height:1.3}
+.mx .c{text-align:center;padding:1.6mm 0;border-top:1px solid var(--rule)}
+.dot{display:inline-flex;align-items:center;justify-content:center;width:7.8mm;height:7.8mm;border-radius:50%;font-size:8.4pt;font-weight:700;color:#fff;background:var(--violet)}
+.dot.mid{background:var(--violet-2)}
+.dot.no{background:transparent;border:1.4px dashed #C8CBD3;color:#B4B8C0;font-weight:500;font-size:11pt}
+
+/* two cols */
+.cols{display:grid;grid-template-columns:1.08fr 1fr;gap:10mm}
+.rank{display:grid;grid-template-columns:1fr 17mm;gap:3mm;align-items:center;padding:2.1mm 0;border-top:1px solid var(--rule)}
+.rank .nm{font-size:10pt;font-weight:600;letter-spacing:-.01em}
+.rank .bar{height:2.6mm;background:#EDEEF1;border-radius:1.3mm;margin-top:1.8mm;overflow:hidden}
+.rank .bar i{display:block;height:100%;background:#BFC3CC}
+.rank .ct{text-align:right;font-family:"JetBrains Mono",monospace;font-size:9pt;font-weight:500;color:var(--dim)}
+.rank.you .nm{color:var(--violet);font-weight:800}
+.rank.you .bar i{background:var(--violet)}
+.rank.you .ct{color:var(--violet);font-weight:700}
+.rank .tag{font-family:"JetBrains Mono",monospace;font-size:6.4pt;letter-spacing:.1em;color:var(--red);margin-left:2mm;font-weight:500}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.t{border:1.5px solid var(--rule);border-radius:1.5mm;padding:2.8mm 2.6mm;text-align:center}
+.t .v{font-size:17pt;font-weight:800;letter-spacing:-.04em;line-height:1}
+.t .k{font-size:7.2pt;color:var(--dim);margin-top:1.6mm;line-height:1.25}
+.t.g{border-color:#BFE3D2;background:#F2FBF7}.t.g .v{color:var(--green)}
+.t.m{border-color:#F3DFB4;background:#FEFAF0}.t.m .v{color:#B8801A}
+.t.b{border-color:#F2C9BB;background:#FDF4F1}.t.b .v{color:var(--red)}
+
+/* next step */
+.step{display:grid;grid-template-columns:1fr 62mm;gap:6mm;align-items:center}
+.sopen{border-left:2mm solid var(--violet);background:var(--soft);border-radius:1.5mm;padding:3mm 4mm}
+.sopen .t1{font-size:11pt;font-weight:700;letter-spacing:-.02em}
+.sopen .t2{font-size:8.4pt;color:#4C4654;margin-top:1.6mm;line-height:1.4}
+.locks{display:grid;grid-template-columns:repeat(6,1fr);gap:2.2mm}
+.lk{border:1.4px dashed #CDD0D8;border-radius:1.5mm;padding:2.4mm .5mm;text-align:center;background:#FAFAFC}
+.lk .n{font-family:"JetBrains Mono",monospace;font-size:8pt;color:#9CA1AC;font-weight:500}
+.lk .i{font-size:9pt;margin-top:.6mm}
+
+/* cta */
+.cta{background:var(--violet);color:#fff;padding:4.6mm 12mm;margin-top:auto;display:grid;grid-template-columns:1fr 1fr 44mm;gap:5mm;align-items:center}
+.opt{border:1.4px solid rgba(255,255,255,.35);border-radius:1.5mm;padding:2.8mm 3.4mm}
+.opt.best{background:rgba(255,255,255,.14);border-color:#fff}
+.opt .on{font-family:"JetBrains Mono",monospace;font-size:6.8pt;letter-spacing:.14em;color:#DCCFFB}
+.opt .on b{background:#fff;color:var(--violet);padding:.4mm 1.4mm;border-radius:.8mm;margin-left:1.6mm;font-weight:600}
+.opt .op{font-size:17pt;font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:1.6mm}
+.opt .op span{font-size:8.4pt;font-weight:600}
+.opt .oe{font-family:"JetBrains Mono",monospace;font-size:6.6pt;color:#fff;margin-top:2.4mm;padding-top:2mm;border-top:1px solid rgba(255,255,255,.28)}
+.ctaend{text-align:right}
+.ctaend .h{font-size:11pt;font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.ctaend .btn{display:inline-block;margin-top:3mm;background:#fff;color:var(--violet);font-size:8.4pt;font-weight:700;padding:2.8mm 4.6mm;border-radius:1.2mm;text-decoration:none}
+
+footer{background:var(--ink);color:#878C96;font-size:6.6pt;padding:2.8mm 12mm;display:flex;justify-content:space-between;gap:8mm;line-height:1.45}
+footer a{color:#C9CDD6;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  __LOGO__
+  <div class="hmeta"><b>SAMPLE VISIBILITY CHECK</b>EXAMPLE REPORT &nbsp;·&nbsp; AISPY-SAMPLE</div>
+</header>
+
+<div class="title">
+  <div>
+    <h1>Kilbride Dental</h1>
+    <div class="url">KILBRIDEDENTAL.IE &nbsp;·&nbsp; DUBLIN, IRELAND</div>
+  </div>
+  <div class="q">We asked ChatGPT, Claude and Gemini <b>5 questions</b> your customers ask.<br>That is <b>15 answers</b>. Here is what they said.</div>
+</div>
+
+<main>
+
+  <div class="hero">
+    <div class="ring-wrap">
+      <div class="ring">
+        <svg width="114" height="114" viewBox="0 0 128 128">
+          <circle cx="64" cy="64" r="52" fill="none" stroke="#E7E3F5" stroke-width="20"/>
+          <circle cx="64" cy="64" r="52" fill="none" stroke="#5E17EB" stroke-width="20"
+                  stroke-dasharray="239.6 326.7" stroke-linecap="butt"/>
+        </svg>
+        <div class="ctr"><div class="v">11</div><div class="s">OF 15</div></div>
+      </div>
+      <div class="hero-txt">
+        <div class="big">Named<br>in 11 of 15.</div>
+        <div class="sub">Average position <b>2.8</b></div>
+      </div>
+    </div>
+    <div class="asst3">
+      <div class="a"><div class="n">CHATGPT</div><div class="v">5<small>/5</small></div>
+        <div class="pips"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="a bad"><div class="n">CLAUDE</div><div class="v">3<small>/5</small></div>
+        <div class="pips"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div></div>
+      <div class="a bad"><div class="n">GEMINI</div><div class="v">3<small>/5</small></div>
+        <div class="pips"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="lbl">QUESTION BY QUESTION &nbsp;·&nbsp; NUMBER = YOUR POSITION IN THE ANSWER</div>
+    <div class="mx">
+      <div></div><div class="h">CHATGPT</div><div class="h">CLAUDE</div><div class="h">GEMINI</div>
+
+      <div class="qq">Which dentist in Dublin is best for implants?</div>
+      <div class="c"><span class="dot">1</span></div>
+      <div class="c"><span class="dot mid">6</span></div>
+      <div class="c"><span class="dot">1</span></div>
+
+      <div class="qq">Best dental practice in Dublin for families?</div>
+      <div class="c"><span class="dot">3</span></div>
+      <div class="c"><span class="dot">2</span></div>
+      <div class="c"><span class="dot no">&ndash;</span></div>
+
+      <div class="qq">Where can I get emergency dental care in Dublin?</div>
+      <div class="c"><span class="dot mid">7</span></div>
+      <div class="c"><span class="dot no">&ndash;</span></div>
+      <div class="c"><span class="dot mid">7</span></div>
+
+      <div class="qq">Which Dublin dentist offers clear aligners?</div>
+      <div class="c"><span class="dot">1</span></div>
+      <div class="c"><span class="dot no">&ndash;</span></div>
+      <div class="c"><span class="dot no">&ndash;</span></div>
+
+      <div class="qq">Is Kilbride Dental any good?</div>
+      <div class="c"><span class="dot">1</span></div>
+      <div class="c"><span class="dot">1</span></div>
+      <div class="c"><span class="dot">1</span></div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="lbl">WHO THE ASSISTANTS NAME</div>
+      <div class="rank you"><div><div class="nm">Kilbride Dental</div><div class="bar"><i style="width:100%"></i></div></div><div class="ct">11/15</div></div>
+      <div class="rank"><div><div class="nm">Harbourview Dental<span class="tag">BIGGEST THREAT</span></div><div class="bar"><i style="width:91%"></i></div></div><div class="ct">10/15</div></div>
+      <div class="rank"><div><div class="nm">Riverbank Dental Care</div><div class="bar"><i style="width:73%"></i></div></div><div class="ct">8/15</div></div>
+      <div class="rank"><div><div class="nm">Larchfield Orthodontics</div><div class="bar"><i style="width:45%"></i></div></div><div class="ct">5/15</div></div>
+    </div>
+
+    <div>
+      <div class="lbl">YOUR SITE SCORECARD</div>
+      <div class="tiles">
+        <div class="t g"><div class="v">73%</div><div class="k">Mentions</div></div>
+        <div class="t m"><div class="v">60%</div><div class="k">Citations</div></div>
+        <div class="t b"><div class="v">45%</div><div class="k">Natural<br>language</div></div>
+        <div class="t g"><div class="v">100%</div><div class="k">Technical<br>SEO</div></div>
+        <div class="t b"><div class="v">15%</div><div class="k">Structured<br>data</div></div>
+        <div class="t g"><div class="v">94%</div><div class="k">Media<br>content</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="lbl">WHAT TO DO NEXT &nbsp;·&nbsp; 1 OF 7 SHOWN</div>
+    <div class="step">
+      <div class="sopen">
+        <div class="t1">Answer your customers' questions in plain language</div>
+        <div class="t2">Prices, opening hours, emergency cover, new patients &mdash; stated simply, not in marketing language. This is why Claude and Gemini miss you.</div>
+      </div>
+      <div class="locks">
+        <div class="lk"><div class="n">02</div><div class="i">&#128274;</div></div>
+        <div class="lk"><div class="n">03</div><div class="i">&#128274;</div></div>
+        <div class="lk"><div class="n">04</div><div class="i">&#128274;</div></div>
+        <div class="lk"><div class="n">05</div><div class="i">&#128274;</div></div>
+        <div class="lk"><div class="n">06</div><div class="i">&#128274;</div></div>
+        <div class="lk"><div class="n">07</div><div class="i">&#128274;</div></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="cta">
+  <div class="opt best">
+    <div class="on">FULL REPORT <b>+ 12 MONTHLY UPDATES</b></div>
+    <div class="op">€50<span> a month</span></div>
+    <div class="oe">OR €500 FOR THE YEAR &middot; SEE WHETHER YOUR FIXES ARE WORKING</div>
+  </div>
+  <div class="opt">
+    <div class="on">FULL AUDIT</div>
+    <div class="op">from €1,000<span> one market</span></div>
+    <div class="oe">AN EXPERT WORKS THROUGH YOUR RESULTS WITH YOU &middot; AUDIT + FIX FROM €2,500</div>
+  </div>
+  <div class="ctaend">
+    <div class="h">See the other<br>six steps.</div>
+    <a class="btn" href="https://aispy.ie">Unlock &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div>Sample report. Kilbride Dental and the practices shown are invented for illustration. Real checks test your own questions and name the businesses actually recommended.</div>
+  <div style="text-align:right;white-space:nowrap">AI Spy &middot; Dublin &nbsp;·&nbsp; <a href="mailto:brendan@aispy.ie">brendan@aispy.ie</a> &middot; +353 87 909 8931<br>All prices exclude VAT</div>
+</footer>
+
+</body>
+</html>
