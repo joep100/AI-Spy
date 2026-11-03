@@ -1,0 +1,32 @@
+# macOS / Windows clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Vercel
+.vercel
+
+# Node, if anything ever gets added
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.env
+.env.local
+
+# Python — for generate-report.py
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Report generator working files
+_built.html
+fonts/
+*.pdf
+!sample-report.pdf

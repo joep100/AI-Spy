@@ -9,9 +9,11 @@ Two static pages. No build step, no framework, nothing to install.
 | `index.html` | The homepage. Served at aispy.ie |
 | `check.html` | The free check request page. Served at aispy.ie/check |
 | `sample-report.pdf` | The sample report the homepage links to |
-| `logo.svg` | The AiSpy wordmark, for use outside the site |
+| `logo.svg` | The AI Spy logo, for use outside the site |
 | `aispy-report-template.html` | Source of the one-page report (see below) |
 | `generate-report.py` | Turns that template into a PDF |
+| `vercel.json` | Serves pages without the .html extension |
+| `.gitignore` | Keeps OS and build clutter out of the repo |
 
 ## Deploying on Vercel
 
@@ -19,7 +21,9 @@ Two static pages. No build step, no framework, nothing to install.
 2. Vercel rebuilds automatically when you commit.
 3. Framework preset: **Other**. Leave build and output settings empty.
 
-The file must be called `index.html` for it to be the homepage. Anything else gets its own address instead.
+The homepage file must be called `index.html`. Anything else gets its own address instead.
+
+`vercel.json` sets `cleanUrls`, which is what lets `check.html` be served at `/check`. Without it those links 404.
 
 ## Before it goes live
 
