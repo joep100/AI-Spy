@@ -121,13 +121,13 @@ footer a{color:var(--violet);text-decoration:none}
 <main><div class="wrap">
 
   <div class="prog" aria-hidden="true">
-    <i id="p1" class="on"></i><i id="p2"></i><i id="p3"></i><i id="p4"></i>
+    <i id="p1" class="on"></i><i id="p2"></i><i id="p3"></i>
   </div>
 
   <!-- 1 — website -->
   <section class="step on" id="s1">
     <h1 class="ask">What does AI say <em>about your business?</em></h1>
-    <p class="hint">Start with your website. Four short questions, then we'll run the check.</p>
+    <p class="hint">That's all we need to start. We work out the rest from your site.</p>
     <div class="urlfield">
       <span class="pre">https://</span>
       <input id="url" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.ie" aria-label="Your website address">
@@ -137,43 +137,17 @@ footer a{color:var(--violet);text-decoration:none}
     <p class="small">FREE &nbsp;·&nbsp; NO CARD &nbsp;·&nbsp; NOTHING TO INSTALL</p>
   </section>
 
-  <!-- 2 — what the business does -->
-  <section class="step" id="s2">
-    <div class="carry anim"><span id="carry1"></span></div>
-    <h1 class="ask anim">In a few words, <em>what do you do?</em></h1>
-    <p class="hint anim">This is what we use to work out the questions your customers would ask.</p>
-    <div class="one anim">
-      <input id="sector" type="text" placeholder="dental practice in south Dublin" aria-label="What your business does">
-      <button class="btn" type="button" id="sectorgo">Next</button>
-    </div>
-    <p class="err" id="sectorerr">A few words is plenty — "dental practice in south Dublin", say.</p>
-    <button class="back-step" type="button" data-back="s1">Change the website</button>
-  </section>
-
-  <!-- 3 — the questions (optional) -->
-  <section class="step" id="s3">
-    <h1 class="ask anim">What would a customer ask <em>to find a business like yours?</em></h1>
-    <p class="hint anim">The most useful thing you can give us — these are the questions we put to ChatGPT, Claude and Gemini. One per line.</p>
-    <div class="one anim" style="flex-direction:column">
-      <textarea id="questions" placeholder="Which dentist in Dublin is best for implants?&#10;Where can I get emergency dental care in Dublin?" aria-label="Questions your customers would ask"></textarea>
-    </div>
-    <div class="one anim">
-      <button class="btn" type="button" id="qgo">Next</button>
-      <button class="btn ghost" type="button" id="qskip">Work them out for me</button>
-    </div>
-    <button class="back-step" type="button" data-back="s2">Back</button>
-  </section>
-
-  <!-- 4 — email -->
+  <!-- 2 — email -->
   <section class="step" id="s4">
-    <h1 class="ask anim">The check takes a day or two.<br><em>Where should we send it?</em></h1>
-    <p class="hint anim">One page, in plain English. Your details are used for this and nothing else.</p>
+    <div class="carry anim"><span id="carry1"></span></div>
+    <h1 class="ask anim">We'll take it from here.<br><em>Where should we send it?</em></h1>
+    <p class="hint anim">We read your site, work out what your customers ask, and put those questions to ChatGPT, Claude and Gemini. One page back, in plain English, within three working days.</p>
     <div class="one anim">
       <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourbusiness.ie" aria-label="Your email">
       <button class="btn" type="button" id="emailgo">Send it there</button>
     </div>
     <p class="err" id="emailerr">That email doesn't look right.</p>
-    <button class="back-step" type="button" data-back="s3">Back</button>
+    <button class="back-step" type="button" data-back="s1">Change the website</button>
   </section>
 
   <!-- 5 — name -->
@@ -221,15 +195,14 @@ footer a{color:var(--violet);text-decoration:none}
 
   var $=function(id){return document.getElementById(id)};
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var data={website:'',sector:'',questions:'',email:'',name:''};
-  var order=['s1','s2','s3','s4','s5','s6'];
-  var pips={s1:1,s2:2,s3:2,s4:3,s5:4,s6:4};
+  var data={website:'',email:'',name:''};
+  var pips={s1:1,s4:2,s5:3,s6:3};
 
   function show(id){
     document.querySelectorAll('.step').forEach(function(s){s.classList.remove('on')});
     $(id).classList.add('on');
     var n=pips[id]||1;
-    ['p1','p2','p3','p4'].forEach(function(p,i){$(p).classList.toggle('on', i<n)});
+    ['p1','p2','p3'].forEach(function(p,i){$(p).classList.toggle('on', i<n)});
     $('what').style.display = (id==='s6') ? 'none' : '';
     window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
   }
@@ -250,21 +223,9 @@ footer a{color:var(--violet);text-decoration:none}
     if(!okDomain(v)){$('urlerr').classList.add('on');return}
     $('urlerr').classList.remove('on');
     data.website=v; $('carry1').textContent=v;
-    show('s2'); $('sector').focus();
+    show('s4'); $('email').focus();
   });
   enter('url','go');
-
-  $('sectorgo').addEventListener('click',function(){
-    var v=$('sector').value.trim();
-    if(v.length<3){$('sectorerr').classList.add('on');return}
-    $('sectorerr').classList.remove('on'); data.sector=v;
-    show('s3'); $('questions').focus();
-  });
-  enter('sector','sectorgo');
-
-  function toEmail(){ data.questions=$('questions').value.trim(); show('s4'); $('email').focus() }
-  $('qgo').addEventListener('click',toEmail);
-  $('qskip').addEventListener('click',function(){ $('questions').value=''; toEmail() });
 
   $('emailgo').addEventListener('click',function(){
     var v=$('email').value.trim();
