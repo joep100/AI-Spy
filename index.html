@@ -163,6 +163,16 @@ h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.08;letter-spacing:-.035em
   padding:11px 13px;border:1px solid var(--violet);border-radius:4px;background:var(--paper)}
 .tier .f{font-family:"JetBrains Mono",monospace;font-size:12px;margin-top:22px;padding-top:18px;border-top:1px solid var(--rule)}
 .tier .btn{margin-top:22px;text-align:center}
+.managed{display:grid;grid-template-columns:1.25fr 1fr;gap:54px;align-items:center;margin-top:22px;
+  border:1px solid var(--rule);border-radius:8px;background:var(--card);padding:38px 40px}
+@media(max-width:900px){.managed{grid-template-columns:1fr;gap:30px;padding:30px 26px}}
+.m-kick{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--violet);margin-bottom:14px}
+.managed h3{font-size:clamp(1.4rem,2.6vw,1.85rem);line-height:1.12;letter-spacing:-.03em;font-weight:700;max-width:20ch}
+.managed p{font-size:16.5px;line-height:1.6;color:var(--dim);margin-top:16px;max-width:52ch}
+.m-price{font-size:38px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.m-price span{font-size:16px;font-weight:600;color:var(--dim)}
+.m-ground{font-size:14px;line-height:1.55;color:var(--dim);margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
+.managed .btn{margin-top:22px}
 
 /* closing */
 .close{background:var(--ink);color:#fff;padding:84px 0}
@@ -255,30 +265,49 @@ footer a{color:#C3C8D2;text-decoration:none}
 <section class="pricing" id="pricing"><div class="wrap">
   <div class="head">
     <h2>Start free. Pay when it's worth paying for.</h2>
-    <p>We're taking on our first group of customers now, at a price that won't be repeated. All prices exclude VAT.</p>
+    <p>Three ways to work with us, and we publish what they cost. All prices exclude VAT.</p>
   </div>
   <div class="tiers">
+
     <div class="tier">
       <div class="t"><span>FREE CHECK</span></div>
       <div class="p">Free</div>
-      <div class="d">Five of your customers' questions, run across the assistants. A one-page report showing who is named, whether you are among them, and your scores.</div>
-      <div class="f">NOTHING TO CANCEL</div>
+      <div class="d">Five of your customers' questions, run across ChatGPT, Claude and Gemini. A one-page report showing who is named, whether you are among them, and your six scores.</div>
+      <div class="f">ONE OFF &middot; NOTHING TO CANCEL</div>
       <a class="btn btn-ghost" href="/check">Get your free check</a>
     </div>
+
     <div class="tier hi">
-      <div class="t"><span>FULL REPORT</span><span class="flag">FOUNDING PRICE</span></div>
+      <div class="t"><span>MONTHLY REPORT</span><span class="flag">FOUNDING PRICE</span></div>
       <div class="p">€50<span> / month</span></div>
       <div class="lock">Locked for life. This price rises to €65 in March — join before then and you keep €50 for as long as you stay.</div>
-      <div class="d">Everything in the check, unlocked — all seven steps, every fix, and why you are missing from specific questions. Then a fresh check every month for a year.</div>
-      <div class="f">OR €500 A YEAR · CANCEL ANYTIME</div>
+      <div class="d">The full report, unlocked, then a fresh check every month: what moved, what slipped, and where your competitors are. Automated, so you see the trend rather than a snapshot.</div>
+      <div class="f">OR €500 A YEAR &middot; CANCEL ANYTIME</div>
       <a class="btn" href="/check">Start monitoring</a>
     </div>
+
     <div class="tier">
-      <div class="t"><span>FULL AUDIT</span></div>
-      <div class="p">from €1,000<span> one market</span></div>
-      <div class="d">An expert works through your results with you and writes the plan: what to change, in what order, and what it should move. Audit and fix from €2,500.</div>
-      <div class="f">INCLUDES THE FULL REPORT · FIRST TEN CLIENTS GET A NAMED CASE STUDY</div>
-      <a class="btn btn-ghost" href="mailto:brendan@aispy.ie">Talk to us</a>
+      <div class="t"><span>REVIEWED</span></div>
+      <div class="p">€300<span> / month</span></div>
+      <div class="d">Everything above, but Brendan reads your results himself each month and tells you what he would do about them — on a call, in plain English. No implementation.</div>
+      <div class="f">30 MINUTES A MONTH WITH BRENDAN</div>
+      <a class="btn btn-ghost" href="mailto:brendan@aispy.ie">Talk to Brendan</a>
+    </div>
+
+  </div>
+
+  <div class="managed">
+    <div class="m-left">
+      <div class="m-kick">MANAGED</div>
+      <h3>Or hand the whole thing to Brendan.</h3>
+      <p>He does the work: the content, the structured data, the directory and review clean-up, the technical fixes, alongside your web team or instead of them. Scoped to what your site actually needs, agreed in writing before anything starts.</p>
+    </div>
+    <div class="m-right">
+      <div class="m-price">from €900<span> / month</span></div>
+      <div class="m-ground">
+        A managed search retainer in Dublin typically runs €750&ndash;€4,000 a month, with most B2B firms in the €1,500&ndash;€2,500 band. We start at the bottom of that range and tell you the number before you ask.
+      </div>
+      <a class="btn" href="mailto:brendan@aispy.ie">Ask what it would cost</a>
     </div>
   </div>
 </div></section>
