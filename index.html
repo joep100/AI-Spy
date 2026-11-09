@@ -184,6 +184,21 @@ h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.08;letter-spacing:-.035em
 .close .close-ghost{background:transparent;color:#fff;border:1.5px solid #3C404A}
 .close .close-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
 
+.who{padding:84px 0;border-top:1px solid var(--rule);background:var(--wash)}
+@media(max-width:900px){.who{padding:56px 0}}
+.who .kick{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--violet);margin-bottom:22px}
+.who-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:start}
+@media(max-width:900px){.who-grid{grid-template-columns:1fr;gap:38px}}
+.who h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;max-width:18ch}
+.who p{font-size:17px;line-height:1.65;color:var(--dim);margin-top:18px;max-width:58ch}
+.who-stats{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:620px){.who-stats{gap:20px}}
+.st .n{font-size:30px;font-weight:800;letter-spacing:-.035em;display:block;line-height:1}
+.st .l{font-size:13.5px;color:var(--dim);margin-top:9px;display:block;line-height:1.4}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:62px;padding-top:40px;border-top:1px solid var(--rule)}
+@media(max-width:900px){.faq{grid-template-columns:1fr;gap:28px;margin-top:40px}}
+.fq h3{font-size:17px;font-weight:700;letter-spacing:-.015em}
+.fq p{font-size:16px;line-height:1.6;color:var(--dim);margin-top:10px;max-width:50ch}
 footer{background:var(--ink);color:#7F858F;border-top:1px solid #24262E;padding:34px 0 46px;font-size:14px}
 .foot-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
 footer a{color:#C3C8D2;text-decoration:none}
@@ -299,8 +314,8 @@ footer a{color:#C3C8D2;text-decoration:none}
   <div class="managed">
     <div class="m-left">
       <div class="m-kick">MANAGED</div>
-      <h3>Or hand the whole thing to Brendan.</h3>
-      <p>He does the work: the content, the structured data, the directory and review clean-up, the technical fixes, alongside your web team or instead of them. Scoped to what your site actually needs, agreed in writing before anything starts.</p>
+      <h3>Or hand the whole thing to us.</h3>
+      <p>Brendan works through your site himself: the content, the structured data, the directory and review clean-up, the technical fixes, alongside your web team or instead of them. Scoped to what your site actually needs, agreed in writing before anything starts.</p>
     </div>
     <div class="m-right">
       <div class="m-price">from €900<span> / month</span></div>
@@ -308,6 +323,35 @@ footer a{color:#C3C8D2;text-decoration:none}
         A managed search retainer in Dublin typically runs €750&ndash;€4,000 a month, with most B2B firms in the €1,500&ndash;€2,500 band. We start at the bottom of that range and tell you the number before you ask.
       </div>
       <a class="btn" href="mailto:brendan@aispy.ie">Ask what it would cost</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="who" id="about"><div class="wrap">
+  <div class="kick">WHO DOES THE WORK</div>
+  <div class="who-grid">
+    <div>
+      <h2>Thirty years of search. All of it in the room.</h2>
+      <p>AI Spy is Brendan Walsh. Every check is run and read by him, and nothing is generated and sent on unread.</p>
+      <p>He spent twelve years running enterprise and international search at Lionbridge, the global localization company, advising Fortune 1000 brands across more than a hundred market and language combinations and reporting findings to CMOs. He built its AI search practice from 2023 and wrote the Python tooling behind its multilingual keyword and content work. Before that he designed data warehouse and business intelligence systems at Dell, EDS/HP and the Revenue Commissioners.</p>
+      <p>Someone who understands both how the data is structured and how a brand gets found is a rare combination. It is why the technical side of this work holds up, and why the answers come in plain English rather than jargon.</p>
+    </div>
+    <div class="who-stats">
+      <div class="st"><span class="n">30 yrs</span><span class="l">in data and search</span></div>
+      <div class="st"><span class="n">100+</span><span class="l">markets and languages</span></div>
+      <div class="st"><span class="n">F1000</span><span class="l">global brands advised</span></div>
+      <div class="st"><span class="n">2023</span><span class="l">working on AI search since</span></div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="fq">
+      <h3>What if Brendan is away?</h3>
+      <p>Your monthly check runs automatically whatever he is doing, so the reports keep coming. Anything that needs his judgement waits for him, and we tell you when — rather than handing your site to someone who has never seen it.</p>
+    </div>
+    <div class="fq">
+      <h3>Is this not just SEO?</h3>
+      <p>It shares some ground, but the question is different. SEO asks where you rank on a page of links. This asks whether you are named at all in an answer that lists two or three companies. Some of the fixes overlap. Many do not.</p>
     </div>
   </div>
 </div></section>
@@ -321,7 +365,7 @@ footer a{color:#C3C8D2;text-decoration:none}
   </div>
 </div></section>
 
-<footer id="about"><div class="wrap foot-in">
+<footer><div class="wrap foot-in">
   <div>AI Spy — Dublin, Ireland. Run by Brendan Walsh.</div>
   <div><a href="mailto:brendan@aispy.ie">brendan@aispy.ie</a> &nbsp;·&nbsp; <a href="tel:+353879098931">+353 87 909 8931</a></div>
 </div></footer>
