@@ -12,7 +12,7 @@
   --violet:#5E17EB; --violet-soft:#F2ECFE;
   --ink:#15161A; --dim:#6B7079; --rule:#E4E4E9;
   --paper:#FFFFFF; --wash:#F7F7F9; --card:#FFFFFF;
-  --logo-violet:#5E17EB;
+  --logo-violet:#5E17EB; --off:#C3C6CE;
   --pat:rgba(94,23,235,.22); --pat-soft:rgba(94,23,235,.07);
   color-scheme: light;
 }
@@ -21,7 +21,7 @@
     --violet:#9A6BFF; --violet-soft:#1E1733;
     --ink:#E9EBF0; --dim:#969BA4; --rule:#262A33;
     --paper:#0C0D12; --wash:#111319; --card:#15171F;
-    --logo-violet:#9A6BFF;
+    --logo-violet:#9A6BFF; --off:#454A55;
     --pat:rgba(154,107,255,.26); --pat-soft:rgba(154,107,255,.10);
     color-scheme: dark;
   }
@@ -147,7 +147,7 @@ h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.08;letter-spacing:-.035em
 /* pricing */
 .pricing{padding:84px 0}
 .pricing .head{text-align:center;margin-bottom:46px}
-.pricing h2{margin:0 auto;max-width:20ch}
+.pricing .head h2{margin:0 auto;max-width:20ch}
 .pricing .head p{font-size:18px;color:var(--dim);margin-top:16px}
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media(max-width:900px){.tiers{grid-template-columns:1fr}}
@@ -199,6 +199,65 @@ h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.08;letter-spacing:-.035em
 @media(max-width:900px){.faq{grid-template-columns:1fr;gap:28px;margin-top:40px}}
 .fq h3{font-size:17px;font-weight:700;letter-spacing:-.015em}
 .fq p{font-size:16px;line-height:1.6;color:var(--dim);margin-top:10px;max-width:50ch}
+
+/* ---- pricing tiers ---- */
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);
+  border-radius:10px;overflow:hidden;background:var(--card);margin-top:42px}
+@media(max-width:1000px){.tiers{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.tiers{grid-template-columns:1fr}}
+.col{border-right:1px solid var(--rule);display:flex;flex-direction:column}
+.col:last-child{border-right:0}
+@media(max-width:1000px){.col{border-bottom:1px solid var(--rule)}}
+.col.hi{background:var(--violet-soft)}
+.col .top{padding:26px 24px 22px;border-bottom:1px solid var(--rule);min-height:230px;display:flex;flex-direction:column}
+.badge{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--violet);
+  background:var(--card);border:1px solid var(--violet);border-radius:3px;padding:3px 7px;align-self:flex-start;margin-bottom:12px}
+.badge.ghost{color:var(--dim);border-color:var(--rule)}
+.col h2{font-size:17px;font-weight:700;letter-spacing:-.015em}
+.col .sub{font-size:13.5px;color:var(--dim);margin-top:5px;min-height:38px}
+.price{font-size:36px;font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:14px}
+.price small{font-size:14px;font-weight:600;color:var(--dim);letter-spacing:0}
+.per{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--violet);margin-top:9px;min-height:17px}
+.cta{margin-top:auto;padding-top:18px}
+.btn{display:block;text-align:center;background:var(--violet);color:#fff;text-decoration:none;
+  font-size:15px;font-weight:600;padding:12px 16px;border-radius:5px}
+.btn:hover{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--rule)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* feature list */
+.feat{padding:8px 0 22px}
+.f{display:grid;grid-template-columns:22px 1fr;gap:11px;align-items:flex-start;padding:10px 24px;font-size:14px;line-height:1.45}
+.f .ic{width:17px;height:17px;margin-top:2px;flex:none}
+.f.off{color:var(--off)}
+.f b{font-weight:600}
+.grp{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--dim);
+  padding:18px 24px 6px;border-top:1px solid var(--rule);margin-top:6px}
+.grp:first-of-type{border-top:0;margin-top:0}
+
+
+.people{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+@media(max-width:900px){.people{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--rule);border-radius:10px;background:var(--card);padding:32px 34px;display:flex;flex-direction:column}
+.pcard.dark{border-color:var(--ink);border-width:2px}
+.pcard h3{font-size:1.35rem;line-height:1.15;letter-spacing:-.025em;font-weight:700;max-width:22ch;margin-top:4px}
+.pcard p{font-size:15.5px;line-height:1.6;color:var(--dim);margin-top:16px;flex:1}
+.pcard .m-price{margin-top:16px}
+.pcard .btn{margin-top:22px;align-self:flex-start;padding:13px 22px;display:inline-block}
+
+.managed{display:grid;grid-template-columns:1.3fr 1fr;gap:54px;align-items:center;margin-top:22px;
+  border:1px solid var(--ink);border-radius:10px;background:var(--card);padding:38px 40px}
+@media(max-width:900px){.managed{grid-template-columns:1fr;gap:28px;padding:30px 26px}}
+.m-kick{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--violet);margin-bottom:14px}
+.managed h3{font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;max-width:20ch}
+.managed p{font-size:16.5px;line-height:1.6;color:var(--dim);margin-top:16px;max-width:54ch}
+.m-price{font-size:38px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.m-price span{font-size:15px;font-weight:600;color:var(--dim)}
+.m-ground{font-size:13.5px;line-height:1.55;color:var(--dim);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.managed .btn{margin-top:20px;display:inline-block;padding:14px 24px}
+.small{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;color:var(--dim);
+  text-align:center;margin-top:30px}
 footer{background:var(--ink);color:#7F858F;border-top:1px solid #24262E;padding:34px 0 46px;font-size:14px}
 .foot-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
 footer a{color:#C3C8D2;text-decoration:none}
@@ -280,51 +339,83 @@ footer a{color:#C3C8D2;text-decoration:none}
 <section class="pricing" id="pricing"><div class="wrap">
   <div class="head">
     <h2>Start free. Pay when it's worth paying for.</h2>
-    <p>Three ways to work with us, and we publish what they cost. All prices exclude VAT.</p>
+    <p>Buy one report, bundle a few to re-run yourself, or have it run for you every month. We publish what everything costs.</p>
   </div>
+
   <div class="tiers">
-
-    <div class="tier">
-      <div class="t"><span>FREE CHECK</span></div>
-      <div class="p">Free</div>
-      <div class="d">Five of your customers' questions, run across ChatGPT, Claude and Gemini. A one-page report showing who is named, whether you are among them, and your six scores.</div>
-      <div class="f">ONE OFF &middot; NOTHING TO CANCEL</div>
-      <a class="btn btn-ghost" href="/check">Get your free check</a>
+    <div class="col">
+      <div class="top">
+        <span class="badge ghost">START HERE</span>
+        <h2>Free check</h2>
+        <div class="sub">See whether this is worth paying for.</div>
+        <div class="price">Free</div>
+        <div class="per"></div>
+        <div class="cta"><a class="btn ghost" href="#">Get your free check</a></div>
+      </div>
+      <div class="feat">
+<div class="grp">WHAT WE ASK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>5 questions</b>, one market</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ChatGPT, Claude and Gemini</span></div><div class="grp">WHAT YOU GET BACK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Visual report</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your seven scores</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Top competitors named</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Every next step</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>The exact fixes for your site</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Why you are missing, question by question</span></div><div class="grp">OVER TIME</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Re-run it yourself</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Change tracking</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Run automatically each month</span></div><div class="grp">A PERSON INVOLVED</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Monthly call</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Work carried out for you</span></div>
+      </div>
     </div>
-
-    <div class="tier hi">
-      <div class="t"><span>MONTHLY REPORT</span><span class="flag">FOUNDING PRICE</span></div>
-      <div class="p">€50<span> / month</span></div>
-      <div class="lock">Locked for life. This price rises to €65 in March — join before then and you keep €50 for as long as you stay.</div>
-      <div class="d">The full report, unlocked, then a fresh check every month: what moved, what slipped, and where your competitors are. Automated, so you see the trend rather than a snapshot.</div>
-      <div class="f">OR €500 A YEAR &middot; CANCEL ANYTIME</div>
-      <a class="btn" href="/check">Start monitoring</a>
+    <div class="col">
+      <div class="top">
+        <span class="badge ghost">1 REPORT</span>
+        <h2>Full report</h2>
+        <div class="sub">The whole picture, once.</div>
+        <div class="price">€75</div>
+        <div class="per">ONE OFF &middot; NO SUBSCRIPTION</div>
+        <div class="cta"><a class="btn ghost" href="#">Buy one report</a></div>
+      </div>
+      <div class="feat">
+<div class="grp">WHAT WE ASK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>15 questions</b>, one market</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ChatGPT, Claude and Gemini</span></div><div class="grp">WHAT YOU GET BACK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full report, unlocked</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your seven scores</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full competitor ranking</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Every next step</b></span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The exact fixes for your site</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Why you are missing, question by question</span></div><div class="grp">OVER TIME</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Re-run it yourself</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Change tracking</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Run automatically each month</span></div><div class="grp">A PERSON INVOLVED</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Monthly call</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Work carried out for you</span></div>
+      </div>
     </div>
-
-    <div class="tier">
-      <div class="t"><span>REVIEWED</span></div>
-      <div class="p">€300<span> / month</span></div>
-      <div class="d">Everything above, but Brendan reads your results himself each month and tells you what he would do about them — on a call, in plain English. No implementation.</div>
-      <div class="f">30 MINUTES A MONTH WITH BRENDAN</div>
-      <a class="btn btn-ghost" href="mailto:brendan@aispy.ie">Talk to Brendan</a>
+    <div class="col">
+      <div class="top">
+        <span class="badge ">3 OR 5 REPORTS</span>
+        <h2>Bundle</h2>
+        <div class="sub">Check, fix, check again.</div>
+        <div class="price">€195 <small>&nbsp;/ €295</small></div>
+        <div class="per">€65 OR €59 EACH &middot; 12 MONTHS TO USE</div>
+        <div class="cta"><a class="btn ghost" href="#">Choose a bundle</a></div>
+      </div>
+      <div class="feat">
+<div class="grp">WHAT WE ASK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>15 questions</b>, one market</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ChatGPT, Claude and Gemini</span></div><div class="grp">WHAT YOU GET BACK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everything in the full report</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>&times;3 or &times;5</b> runs</span></div><div class="grp">OVER TIME</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Re-run it yourself</b> from your portal</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Change tracking</b> between runs</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>12 months to use them</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Run automatically each month</span></div><div class="grp">A PERSON INVOLVED</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Monthly call</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Work carried out for you</span></div>
+      </div>
     </div>
-
+    <div class="col hi">
+      <div class="top">
+        <span class="badge ">POPULAR</span>
+        <h2>Monthly tracking</h2>
+        <div class="sub">Run for you, every month.</div>
+        <div class="price">€60<small> / month</small></div>
+        <div class="per">OR €500 FOR THE YEAR</div>
+        <div class="cta"><a class="btn " href="#">Start tracking</a></div>
+      </div>
+      <div class="feat">
+<div class="grp">WHAT WE ASK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>15 questions</b>, one market</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ChatGPT, Claude and Gemini</span></div><div class="grp">WHAT YOU GET BACK</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everything in the full report</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A fresh report <b>every month</b></span></div><div class="grp">OVER TIME</div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Run <b>automatically</b>, nothing to remember</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Change tracking</b> month on month</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The trend, not a snapshot</span></div><div class="f"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#5E17EB"/><path d="M6 10.5l2.5 2.5L14 7.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Competitor movement</span></div><div class="grp">A PERSON INVOLVED</div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Monthly call</span></div><div class="f off"><svg class="ic" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Work carried out for you</span></div>
+      </div>
+    </div>
   </div>
 
-  <div class="managed">
-    <div class="m-left">
+  <div class="people">
+    <div class="pcard">
+      <div class="m-kick">REVIEWED</div>
+      <h3>One hour a month with a consultant.</h3>
+      <div class="m-price">from €250<span> / month</span></div>
+      <p>Everything in monthly tracking, plus manual checks by us. Each month we spend an hour with you or your dev team going through the issues, and the tasks go straight into your developers' issue tracker. No implementation.</p>
+      <a class="btn ghost" href="#">Talk to us</a>
+    </div>
+    <div class="pcard dark">
       <div class="m-kick">MANAGED</div>
       <h3>Or hand the whole thing to us.</h3>
-      <p>Brendan works through your site himself: the content, the structured data, the directory and review clean-up, the technical fixes, alongside your web team or instead of them. Scoped to what your site actually needs, agreed in writing before anything starts.</p>
-    </div>
-    <div class="m-right">
-      <div class="m-price">from €900<span> / month</span></div>
-      <div class="m-ground">
-        A managed search retainer in Dublin typically runs €750&ndash;€4,000 a month, with most B2B firms in the €1,500&ndash;€2,500 band. We start at the bottom of that range and tell you the number before you ask.
-      </div>
-      <a class="btn" href="mailto:brendan@aispy.ie">Ask what it would cost</a>
+      <div class="m-price">from €750<span> / month</span></div>
+      <p>We work through your site: the content, the structured data, the directory and review clean-up, the technical fixes, alongside your web team or instead of them. Scoped to your site, agreed in writing before anything starts.</p>
+      <div class="m-ground">A managed AI search retainer in Dublin typically runs €750&ndash;€4,000 a month, with most B2B firms in the €1,500&ndash;€2,500 band. We start at the bottom of that range and tell you the number before you ask.</div>
+      <a class="btn" href="#">Ask what it would cost</a>
     </div>
   </div>
+
+  <p class="small">BUNDLE REPORTS LAST 12 MONTHS &nbsp;·&nbsp; MONTHLY TRACKING HAS A TWO-REPORT MINIMUM, SO YOU ALWAYS GET A COMPARISON<br>ALL PRICES EXCLUDE VAT &mdash; WE ARE NOT CHARGING VAT YET, AND WILL TELL SUBSCRIBERS BEFORE IT FIRST APPLIES</p>
 </div></section>
 
 <section class="who" id="about"><div class="wrap">
